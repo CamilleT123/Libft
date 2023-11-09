@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:26:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/08 18:40:03 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:26:53 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 // 	return (i);
 // }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
-	int i;
-	int j;
-	
+	int		i;
+	int		j;
+
 	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!s3)
 		return (NULL);
@@ -48,13 +48,13 @@ char *ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	s3[i] = 0;
-		return (s3);
+	return (s3);
 }
 
 // int	main(void)
 // {
 // 	char s1[] = "coucou";
 // 	char s2[] = " toi";
-	
+
 // 	printf("%s\n", ft_strjoin(s1, s2));
 // }

@@ -6,17 +6,17 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:04:49 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/08 17:14:43 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:50:20 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int r;
-	int i;
-	
+	int	r;
+	int	i;
+
 	r = 0;
 	i = 0;
 	if (nptr[i] >= 48 && nptr[i] <= 57)
@@ -28,12 +28,12 @@ int ft_atoi(const char *nptr)
 		}
 		return (r);
 	}
-	else 
+	else
 		return (0);
 }
 
-int	main(void)
-{
-	char nptr[] = "59";
-	printf("%d\n", ft_atoi(nptr));
-}
+// int	main(void)
+// {
+// 	char nptr[] = "59";
+// 	printf("%d\n", ft_atoi(nptr));
+// }
