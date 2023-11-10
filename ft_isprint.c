@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:36:06 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/06 18:37:09 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:06:32 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_isprint(int c)
 {
-	if (c > 32 && c < 127)
-		return (0);
-	else
+	if (c >= 32 && c < 127)
 		return (1);
+	else
+		return (0);
 }
 
 // #include <stdio.h>

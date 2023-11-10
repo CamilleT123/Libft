@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:47:42 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 17:55:09 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:40:45 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	j = 0;
 	while (src[i])
 		i++;
+	if (size < 0)
+	{
+		while (src[j])
+		{
+			dst[j] = src[j];
+			j++;
+		}
+		dst[j] = '\0';
+	}
 	if (size > 0)
 	{
 		while (src[j] && j < size - 1)
@@ -28,8 +37,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 			dst[j] = src[j];
 			j++;
 		}
-		if (j == size - 1)
-			dst[j] = '\0';
+		dst[j] = '\0';
 	}
 	return (i);
 }
@@ -37,8 +45,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char dest[] = "cou";
-// 	char src[] = "hello hgsdfh";
-// 	printf("%zu\n", ft_strlcpy(dest, src, 8));
-// 	printf("%s", dest);
+// 	char src[] = "coucou";
+// 	char dest[10]; ft_memset(dest, 'A', 10);
+	
+// 	// char dest[] = "cou";
+// 	// char src[] = "hello hgsdfh";
+// 	printf("i = %zu\n", ft_strlcpy(dest, src, -1));
+// 	printf("dest = %c\n", dest[0]);
+// 	printf("dest = %c\n", dest[1]);
+// 	printf("dest = %c\n", dest[7]);
 // }

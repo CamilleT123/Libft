@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:05:22 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 17:46:01 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 12:01:09 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:00:24 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/08 15:19:16 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:02:45 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }
 
 // #include <stdio.h>

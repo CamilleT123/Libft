@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:53:51 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 18:04:00 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:59:40 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s2)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
 		s2[i] = f(i, s[i]);
 		i++;

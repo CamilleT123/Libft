@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:10:04 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 18:16:39 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:03:47 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ char *ft_strdup(const char *s)
 		s2[i] = s[i];
 		i++;
 	}
+	s2[i] = '\0';
 	return (s2);
 }
 
-int	main(void)
-{
-	char s[] = "coucou";
-	printf("%s\n", ft_strdup(s));
-}
+// int	main(void)
+// {
+// 	char s[] = "coucou";
+// 	printf("%s\n", ft_strdup(s));
+// }

@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:17:38 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/06 18:31:42 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:03:02 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }
 
 /*#include <stdio.h>

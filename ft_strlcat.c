@@ -6,45 +6,65 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:48:14 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 17:53:00 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:57:39 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_sizeneg(char *dst, const char *src)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (dst[i] && i < size - 1)
-	{
+	while (dst[i])
 		i++;
-	}
-	while (src[j] && i < size - 1)
+	while (src[j])
 	{
 		dst[i] = src[j];
 		i++;
 		j++;
 	}
 	dst[i] = 0;
-	return (i);
+}
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	i = 0;
+	j = 0;
+	len = size;
+	if (size == 0)
+		return (ft_strlen(src));
+	if (size >= ft_strlen(dst))
+		len = ft_strlen(dst);
+	if (size < 0)
+		ft_sizeneg(dst, src);
+	else
+		while (dst[i] && i < size)
+			i++;
+		while (src[j] && i < size - 1)
+		{
+			dst[i] = src[j];
+			i++;
+			j++;
+		}
+		if (size > ft_strlen(dst))
+			dst[i] = 0;
+	return (len + ft_strlen(src));
 }
 
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char dest[] = "cou";
-// 	char src[] = "hello";
-// 	printf("%zu\n", ft_strlcat(dest, src, 8));
-// 	printf("%s", dest);
+// 	char dest[30]; ft_memset(dest, 0, 30);
+// 	char * src = (char *)"AAAAAAAAA";
+// 	dest[0] = 'B';
+// 	printf("return=%zu\n", ft_strlcat(dest, src, 1));
+// 	printf("dest=%s", dest);
 // }
-
-/* Note, however, that if strlcat() traverses size characters without finding a NUL, the length of
-the string is considered to be size and the destination string will not be NUL-terminated (since
-there was no space for the NUL).  This keeps strlcat() from running off the end of a string.  In
-practice this should not happen (as it means that either size is incorrect or that dst is not a
-proper “C” string).  The check exists to prevent potential security problems in incorrect code.
-*/

@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:13:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 17:49:27 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:04:29 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-int	main(void)
-{
-	printf("%s\n", ft_itoa(-4559413));
-}
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(-4559413));
+// }

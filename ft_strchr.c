@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:02:18 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/08 14:46:52 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:13:19 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
+	while (c > 255)
+		c = c - 256;
 	while (str[i])
 	{
 		if (str[i] == c)
