@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:12:28 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 16:03:27 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:57:03 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *str, int c)
 		return (((char *)str + ft_strlen(str)));
 	while (c > 255)
 		c = c - 256;
-	while (i >= 0)
+	while (i >= 0 && str[i])
 	{
 		if (str[i] == c)
 			return (((char *)str + i));
@@ -30,8 +30,7 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	if (str[i] == 0 && c == 0)
 		return (((char *)str));
-	else
-		return (NULL);
+	return (NULL);
 }
 
 // int	main(void)

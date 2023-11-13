@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:37:45 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 12:25:54 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:52:28 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,26 @@ int	ft_indexend(char const *s1, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s2;
-	int		i;
+	int		start;
 	int		k;
-	int		l;
+	int		end;
 	int		size;
 
-	i = ft_indexstart(s1, set);
-	l = ft_indexend(s1, set);
+	s2 = NULL;
+	start = ft_indexstart(s1, set);
+	end = ft_indexend(s1, set) + 1;
+	if (start > end)
+		return (ft_strdup("\0"));
 	k = 0;
-	size = ft_indexend(s1, set) - ft_indexstart(s1, set);
+	size = end - start + 1;
 	s2 = malloc(sizeof(char) * size);
 	if (!s2)
 		return (NULL);
-	while (s1[i] && i <= l)
+	ft_bzero(s2, size);
+	while (s1[start] && start < end)
 	{
-		s2[k] = s1[i];
-		i++;
+		s2[k] = s1[start];
+		start++;
 		k++;
 	}
 	return (s2);
@@ -79,8 +83,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int main(void)
 // {
-// 	char s1[] = "     xcc xxh xxc    x";
-// 	char set[] = " x";
-
-// 	printf("%s\n", ft_strtrim(s1, set));
+// 	printf("%s\n", ft_strtrim("   xxx   xxx", " x"));
 // }

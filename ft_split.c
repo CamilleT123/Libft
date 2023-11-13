@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:27:54 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 17:46:35 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:09:36 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ size_t	ft_lines(char const *s, char c)
 	size_t	l;
 
 	i = 0;
-	l = 1;
+	l = 0;
+	if (s[i] == 0)
+		return (0);
 	while (s[i])
 	{
-		if (s[i] == c)
+		if ((s[i] != c) && ((s[i + 1] == c) || (s[i + 1] == 0)))
 			l++;
 		i++;
 	}
@@ -36,54 +38,63 @@ size_t	ft_getwordsize(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
 
 char	*ft_getword(char const *s, size_t wordsize)
 {
-	int		i;
 	char	*dest;
 
-	i = 0;
-	dest = malloc(sizeof(char) * wordsize + 1);
+	dest = NULL;
+	dest = malloc(sizeof(char) * (wordsize + 1));
 	if (!dest)
 		return (NULL);
 	ft_strlcpy(dest, s, wordsize + 1);
 	return (dest);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_tab(char const *s, char **tab, char c)
 {
-	char		**tab;
-	size_t		sizetab;
-	size_t		lines;
-	size_t		wordsize;
 	size_t		i;
 	size_t		j;
 
 	i = 0;
 	j = 0;
-	lines = ft_lines(s, c);
-	sizetab = ft_strlen(s) + 2;
-	tab = malloc(sizeof(char) * sizetab + 1);
-	if (!tab)
-		return (NULL);
-	while (s[i] && j < lines)
+	while (s[i] && j < ft_lines(s, c))
 	{
-		if (s[i] == c)
+		while (s[i] == c)
 			i++;
-		wordsize = ft_getwordsize(&s[i], c);
-		tab[j] = ft_getword(&s[i], wordsize);
-		tab[j][wordsize] = '\0'; // AUTOMATIQUE??
-		printf("j = %zu\n i = %zu\n", j, i);
-		printf("Tab :%s\n", tab[j]);
+		tab[j] = ft_getword(&s[i], ft_getwordsize(&s[i], c));
+		if (!tab[j])
+		{
+			while ((int)j >= 0)
+			j--;
+			return (NULL);
+		}
+		while ((s[i] != c) && s[i])
+			i++;
 		j++;
-		i = i + wordsize;
 	}
 	tab[j] = NULL;
-	printf("Tab :%s\n", tab[j]);
+	return (tab);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char		**tab;
+	size_t		i;
+	size_t		j;
+
+	i = 0;
+	j = 0;
+	if (!s)
+		return (NULL);
+	tab = malloc(sizeof(char *) * (ft_lines(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	ft_tab(s, char **tab, char c);
 	return (tab);
 }
 
@@ -105,6 +116,5 @@ char	**ft_split(char const *s, char c)
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char	*str = "salut ca va";
-// 	ft_split(str, ' ');
+// 	ft_split("  tripouille  42  ", ' ');
 // }

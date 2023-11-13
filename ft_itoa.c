@@ -6,11 +6,12 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:13:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 11:04:29 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:21:35 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 #include <stdlib.h>
 
 int	ft_getlengh(int n)
@@ -23,7 +24,7 @@ int	ft_getlengh(int n)
 		l = 2;
 		n = n * -1;
 	}
-	while (n >= 9)
+	while (n > 9)
 	{
 		n = n / 10;
 		l++;
@@ -34,16 +35,14 @@ int	ft_getlengh(int n)
 char	*ft_itoa_neg(int n, char *res, int l)
 {
 	n = n * -1;
-	res[l + 1] = '\0';
-	while (n > 9)
-	{
-		res[l - 1] = n % 10 + 48;
-		n = n / 10;
-		l--;
-	}
-	if (n <= 9)
-		res[1] = n % 10 + 48;
 	res[0] = '-';
+	res[l] = '\0';
+	while (l > 1)
+	{
+		l--;
+		res[l] = n % 10 + 48;
+		n = n / 10;
+	}
 	return (res);
 }
 
@@ -52,23 +51,23 @@ char	*ft_itoa(int n)
 	char	*res;
 	int		l;
 
+	if ((long int)n == -2147483648)
+	{
+		res = "-2147483648";
+		return (res);
+	}
 	l = ft_getlengh(n);
-	printf("lengh%d\n", l);
-	res = malloc(sizeof(char) * l);
+	res = malloc(sizeof(char) * (l + 1));
+	if (!res)
+		return (NULL);
 	if (n >= 0)
 	{
-		if (!res)
-			return (NULL);
 		res[l] = '\0';
-		while (n > 9)
+		while (l > 0)
 		{
-			res[l - 1] = n % 10 + 48;
-			n = n / 10;
 			l--;
-		}
-		if (n <= 9)
-		{
-			res[0] = n % 10 + 48;
+			res[l] = n % 10 + 48;
+			n = n / 10;
 		}
 	}
 	if (n < 0)
@@ -78,5 +77,5 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(-4559413));
+// 	printf("%s\n", ft_itoa(-2147483648));
 // }

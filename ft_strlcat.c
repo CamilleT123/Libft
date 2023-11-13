@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:48:14 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 17:57:39 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:54:34 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,40 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (ft_strlen(src));
 	if (size >= ft_strlen(dst))
 		len = ft_strlen(dst);
-	if (size < 0)
+	if ((int)size < 0)
 		ft_sizeneg(dst, src);
 	else
 		while (dst[i] && i < size)
 			i++;
-		while (src[j] && i < size - 1)
+	// while (src[j] && i < size - 1)
+	// {
+	// 	dst[i] = src[j];
+	// 	i++;
+	// 	j++;
+	// }
+	while (src[j])
+	{
+		if (j < (size - ft_strlen(dst) -1))
 		{
 			dst[i] = src[j];
 			i++;
-			j++;
 		}
-		if (size > ft_strlen(dst))
-			dst[i] = 0;
+		j++;
+	}
+	dst[i] = 0;
+	if (size > ft_strlen(dst))
+		dst[i] = 0;
 	return (len + ft_strlen(src));
 }
 
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char dest[30]; ft_memset(dest, 0, 30);
-// 	char * src = (char *)"AAAAAAAAA";
-// 	dest[0] = 'B';
-// 	printf("return=%zu\n", ft_strlcat(dest, src, 1));
+// 	char dest[14] = "a";
+// 	// ft_memset(dest, 0, 30);
+// 	// char * src = (char *)"AAAAAAAAA";
+// 	// dest[0] = 'B';
+// 	printf("return=%zu\n", ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+// 	ft_strlcat(dest, "lorem ipsum dolor sit amet", 15);
 // 	printf("dest=%s", dest);
 // }

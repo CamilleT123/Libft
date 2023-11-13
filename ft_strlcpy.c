@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:47:42 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 16:40:45 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:46:12 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	j = 0;
 	while (src[i])
 		i++;
-	if (size < 0)
+	if ((int)size < 0)
 	{
 		while (src[j])
 		{

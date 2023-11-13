@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:29:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/09 12:27:29 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:56:29 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,26 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*s2;
 	size_t	i;
+	size_t	j;
+	size_t	mem;
 
-	s2 = malloc(sizeof(char) * len);
+	i = 0;
+	mem = len + 1;
+	while (s[i])
+		i++;
+	if (len > (i - start))
+		mem = i - start + 1;
+	if (start > i)
+		return (ft_strdup("\0"));
+	s2 = malloc(sizeof(char) * mem);
 	if (!s2)
 		return (NULL);
-	i = 0;
-	while (s[start] && i < len)
+	ft_bzero(s2, mem);
+	j = 0;
+	while (s[start] && j < len)
 	{
-		s2[i] = s[start];
-		i++;
+		s2[j] = s[start];
+		j++;
 		start++;
 	}
 	return (s2);
@@ -33,7 +44,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int	main(void)
 // {
-// 	char s[] = "coucou toi";
-
-// 	printf("%s", ft_substr(s, 5, 3));
+// 	printf("%s", ft_substr("tripouille", 0, 42000));
 // }

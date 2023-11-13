@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:41:59 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 14:50:49 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:47:38 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	i = 0;
 	if (n == 0)
-		return (NULL);	
+		return (NULL);
 	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)

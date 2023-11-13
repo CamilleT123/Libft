@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:30:05 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 15:04:02 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:52:30 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isalnum(int c)
 // #include <stdio.h>
 // int main(void)
 // {
-//   int c; 
+//   int c;
 //   c = '5';
 //   printf("test2 : %d", ft_isalnum(c));
 // }
