@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:27:54 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 19:09:36 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:41:35 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,13 @@ char	**ft_tab(char const *s, char **tab, char c)
 char	**ft_split(char const *s, char c)
 {
 	char		**tab;
-	size_t		i;
-	size_t		j;
 
-	i = 0;
-	j = 0;
 	if (!s)
 		return (NULL);
 	tab = malloc(sizeof(char *) * (ft_lines(s, c) + 1));
 	if (!tab)
 		return (NULL);
-	ft_tab(s, char **tab, char c);
+	ft_tab(s, tab, c);
 	return (tab);
 }
 

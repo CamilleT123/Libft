@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:46:53 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/08 12:00:41 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:43:54 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (s == NULL)
-		return (NULL);
 	while (i < n)
 	{
 		((unsigned char *)s)[i] = c;

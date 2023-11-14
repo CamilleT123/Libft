@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:47:42 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 17:46:12 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:36:19 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	j = 0;
 	while (src[i])
 		i++;
-	if ((int)size < 0)
-	{
-		while (src[j])
-		{
-			dst[j] = src[j];
-			j++;
-		}
-		dst[j] = '\0';
-	}
 	if (size > 0)
 	{
 		while (src[j] && j < size - 1)
@@ -47,7 +38,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 // {
 // 	char src[] = "coucou";
 // 	char dest[10]; ft_memset(dest, 'A', 10);
-	
+
 // 	// char dest[] = "cou";
 // 	// char src[] = "hello hgsdfh";
 // 	printf("i = %zu\n", ft_strlcpy(dest, src, -1));

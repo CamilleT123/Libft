@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:12:28 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 15:57:03 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:51:56 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,17 @@ char	*ft_strrchr(const char *str, int c)
 	{
 		if (str[i] == c)
 			return (((char *)str + i));
-		else
-			i--;
+		i--;
 	}
-	if (str[i] == 0 && c == 0)
-		return (((char *)str));
 	return (NULL);
 }
 
 // int	main(void)
 // {
 // 	// char str[15] = "Hello toi";
-// 	char s[] = "tripouille";
+// 	// char s[] = "tripouille";
+// 	char		str2[] = "bonjour";
 
-// 	int c = 0;
-// 	printf("%s\n", ft_strrchr(s, c));
+// 	// int c = 0;
+// 	printf("%s\n", ft_strrchr(str2, 's'));
 // }

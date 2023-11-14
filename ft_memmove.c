@@ -6,46 +6,37 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:45:40 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/10 16:10:09 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:28:11 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return ((char *)dest);
-}
-
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	char	*s;
+	char	*d;
 
-	i = n - 1;
+	s = (char *)src;
+	d = (char *)dest;
+	if (!dest && !src)
+		return (dest);
 	if (src > dest)
 	{
-		ft_memcpy(dest, src, n);
+		while (n--)
+		{
+			*d++ = *s++;
+		}
 	}
 	if (src < dest)
 	{
-		while (i > 0)
+		while (n--)
 		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i--;
+			d[n] = s[n];
 		}
-		if (i == 0)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 	}
-	return ((char *)dest);
+	return (dest);
 }
 
 // int main(void)

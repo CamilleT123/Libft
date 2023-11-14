@@ -6,14 +6,14 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:48:26 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 17:57:35 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:40:14 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <limits.h>
-#include <float.h>
+// #include <float.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
