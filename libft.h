@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:51:38 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 17:47:11 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:57:08 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void	*content;
+	struct	s_list *next;
+}			t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

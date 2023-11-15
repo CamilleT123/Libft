@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:48:26 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/14 10:40:14 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:46:35 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!len && !big)
+		return (0);
+	if (ft_strlen(big) < ft_strlen(little))
+		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] && i < len)
@@ -37,12 +41,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
+// #include <bsd/string.h>
 // int 	main(void)
 // {
 // 	// char str[] = "totototoi";
 // 	// char to_find[] = "toto";
-// 	char haystack[30] = "aaabcabcd";
+// 	// char haystack[30] = "aaabcabcd";
 // 	// char needle[10] = "aabc";
 
-// 	printf("%s\n", ft_strnstr(haystack, "cd", 8));
+// 	char *big = "abcdef";
+// 	char *little = "abcdefghijklmnop";
+// 	size_t	max = strlen(big);
+
+// 	printf("%s\n", ft_strnstr(big, little, max));
+// 	printf("%s\n", strnstr(big, little, max));
 // }

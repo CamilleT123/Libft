@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:13:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 18:21:35 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:11:25 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ char	*ft_itoa(int n)
 	int		l;
 
 	if ((long int)n == -2147483648)
-	{
-		res = "-2147483648";
-		return (res);
-	}
+		return (ft_strdup("-2147483648"));
 	l = ft_getlengh(n);
 	res = malloc(sizeof(char) * (l + 1));
 	if (!res)
@@ -77,5 +74,5 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(-2147483648));
+// 	printf("%s\n", ft_itoa(INT_MIN));
 // }

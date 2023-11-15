@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:37:45 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 12:52:28 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:16:34 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		start;
 	int		k;
 	int		end;
-	int		size;
 
 	s2 = NULL;
+	if (!s1)
+		return (NULL);
 	start = ft_indexstart(s1, set);
 	end = ft_indexend(s1, set) + 1;
 	if (start > end)
 		return (ft_strdup("\0"));
 	k = 0;
-	size = end - start + 1;
-	s2 = malloc(sizeof(char) * size);
+	s2 = malloc(sizeof(char) * (end - start + 1));
 	if (!s2)
 		return (NULL);
-	ft_bzero(s2, size);
+	ft_bzero(s2, (end - start + 1));
 	while (s1[start] && start < end)
 	{
 		s2[k] = s1[start];

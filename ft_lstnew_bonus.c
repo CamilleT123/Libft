@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 17:05:22 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/15 15:06:10 by ctruchot         ###   ########.fr       */
+/*   Created: 2023/11/15 17:45:36 by ctruchot          #+#    #+#             */
+/*   Updated: 2023/11/15 17:46:00 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list *ft_lstnew(void *content)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	t_list *element;
+	
+	element = malloc(sizeof(t_list));
+	if (element == NULL)
+		return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }
-
-// write (fd, s, strlen(s))
-
-// # include <fcntl.h>
-// int main(void)
-// {
-// 	char s[10] = "\ncoucou\n";
-// 	int fd = open("tripouille.txt", O_RDWR | O_CREAT, 0777);
-
-// 	ft_putstr_fd(s, fd);
-// 	close(fd);
-// }
