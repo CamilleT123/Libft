@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:27:54 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/14 10:41:35 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/16 20:58:27 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ char	**ft_tab(char const *s, char **tab, char c)
 		if (!tab[j])
 		{
 			while ((int)j >= 0)
-			j--;
+			{
+				free(tab[j]);
+				j--;
+			}
+			free(tab);
 			return (NULL);
 		}
 		while ((s[i] != c) && s[i])
