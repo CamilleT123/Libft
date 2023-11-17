@@ -21,9 +21,6 @@ OBJB	=	$(SRCB:.c=.o)
 
 all:	$(NAME)
 
-# %.o : %.c
-# $(CC) $(CFLAGS) -c $*.c -I includes -o $*.o
-
 $(NAME): $(OBJ) $(includes)
 		ar rc $(NAME) $(OBJ)
 
@@ -39,8 +36,8 @@ fclean: clean
 re: fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	cc -nostartfiles -shared -o libft.so $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRCB)
+	cc -nostartfiles -shared -o libft.so $(OBJ) $(OBJB)
 
 .PHONY: clean all fclean re all
 
