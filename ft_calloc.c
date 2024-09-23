@@ -6,13 +6,11 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:18:25 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 17:52:01 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:24:44 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdlib.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

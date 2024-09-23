@@ -6,14 +6,13 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:37:45 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/15 15:16:34 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:38:19 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int	ft_indexstart(char const *s1, char const *set)
+static int	ft_indexstart(char const *s1, char const *set)
 {
 	int	i;
 	int	j;
@@ -33,7 +32,7 @@ int	ft_indexstart(char const *s1, char const *set)
 	return (i);
 }
 
-int	ft_indexend(char const *s1, char const *set)
+static int	ft_indexend(char const *s1, char const *set)
 {
 	int	j;
 	int	l;

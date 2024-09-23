@@ -6,15 +6,13 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:13:50 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/15 15:11:25 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:25:11 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdlib.h>
 
-int	ft_getlengh(int n)
+static int	ft_getlengh(int n)
 {
 	int	l;
 
@@ -32,7 +30,7 @@ int	ft_getlengh(int n)
 	return (l);
 }
 
-char	*ft_itoa_neg(int n, char *res, int l)
+static char	*ft_itoa_neg(int n, char *res, int l)
 {
 	n = n * -1;
 	res[0] = '-';

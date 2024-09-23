@@ -6,12 +6,11 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:10:04 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/13 17:56:07 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:26:06 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {

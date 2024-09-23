@@ -6,7 +6,7 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:12:28 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/14 13:51:56 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/20 10:56:37 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ char	*ft_strrchr(const char *str, int c)
 	int	i;
 
 	i = ft_strlen(str) - 1;
-	if (c == 0)
+	if ((unsigned char)c == 0)
 		return (((char *)str + ft_strlen(str)));
-	while (c > 255)
-		c = c - 256;
 	while (i >= 0 && str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 			return (((char *)str + i));
 		i--;
 	}
 	return (NULL);
 }
 
+// #include <string.h>
 // int	main(void)
 // {
 // 	// char str[15] = "Hello toi";
 // 	// char s[] = "tripouille";
-// 	char		str2[] = "bonjour";
+// 	// char		str2[] = "bonjour";
 
 // 	// int c = 0;
-// 	printf("%s\n", ft_strrchr(str2, 's'));
+// 	printf("%s\n", ft_strrchr("teste", 1024 + 'e'));
+// 	printf("%s\n", strrchr("teste", 1024 + 'e'));	
 // }

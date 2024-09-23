@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/20 12:07:06 by ctruchot          #+#    #+#              #
+#    Updated: 2023/11/23 16:11:05 by ctruchot         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	libft.a
 SRC		=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
@@ -9,10 +21,11 @@ SRC		=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 			ft_putnbr_fd.c 
 			
-SRCB	=	ft_lstnew.c ft_lstadd_front.c \
-			ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-			ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			ft_lstmap.c
+SRCB	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
+
 CC		=	cc
 includes =	libft.h
 CFLAGS	=	-Wall -Wextra -Werror
@@ -33,11 +46,11 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+# so:
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRCB)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJB)
+	
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRCB)
-	cc -nostartfiles -shared -o libft.so $(OBJ) $(OBJB)
-
-.PHONY: clean all fclean re all
+.PHONY: clean all fclean re all so
 

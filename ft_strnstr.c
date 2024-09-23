@@ -6,14 +6,11 @@
 /*   By: ctruchot <ctruchot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:48:26 by ctruchot          #+#    #+#             */
-/*   Updated: 2023/11/15 14:46:35 by ctruchot         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:18:21 by ctruchot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <limits.h>
-// #include <float.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -30,11 +27,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j] && (i + j) < len)
+		while (big[i] == little[j] && i < len)
 		{
+			i++;
 			j++;
-			if (little[j] == 0 || j == len)
-				return (&((char *)big)[i]);
+			if (little[j] == 0)
+				return (&((char *)big)[i - j]);
+			if (big[i] != little[j])
+				i = i - j;
 		}
 		i++;
 	}
@@ -46,13 +46,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // {
 // 	// char str[] = "totototoi";
 // 	// char to_find[] = "toto";
-// 	// char haystack[30] = "aaabcabcd";
-// 	// char needle[10] = "aabc";
+// 	char haystack[30] = "aaabcabcd";
+// 	char needle[10] = "aabc";
 
-// 	char *big = "abcdef";
-// 	char *little = "abcdefghijklmnop";
-// 	size_t	max = strlen(big);
+// 	// char *big = "abcdef";
+// 	// char *little = "abcdefghijklmnop";
+// 	// size_t	max = strlen(big);
 
-// 	printf("%s\n", ft_strnstr(big, little, max));
-// 	printf("%s\n", strnstr(big, little, max));
+// 	printf("%s\n", ft_strnstr(haystack, needle, 0));
+// 	printf("%s\n", strnstr(haystack, needle, 0));
 // }
